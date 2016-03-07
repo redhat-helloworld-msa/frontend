@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "frontend to access microservices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redhat-helloworld-msa/frontend.git"
+  },
+  "author": "developer@redhat.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/redhat-helloworld-msa/frontend/issues"
+  },
+  "homepage": "https://github.com/redhat-helloworld-msa/frontend#readme",
+  "dependencies": {
+    "patternfly": "^3.2.0"
+  }
+}
