@@ -30,13 +30,13 @@ function invoke_ajax(url, id){
 
 function init(){
     var services = [
-      {'url': 'http://hola-s2i-helloworld-msa.cdk.10.3.2.2.xip.io/rest/hola',
+      {'url': 'http://hola-s2i-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
        'id': 'hola-service'},
-      {'url': 'http://bonjour-helloworld-msa.cdk.10.3.2.2.xip.io/bonjour',
+      {'url': 'http://bonjour-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/bonjour',
       'id': 'bonjour-service'},
-      {'url': 'http://hola-docker-helloworld-msa.cdk.10.3.2.2.xip.io/rest/hola',
+      {'url': 'http://hola-docker-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
        'id': 'hola-docker-service'},
-       {'url': 'http://hello-helloworld-msa.cdk.10.3.2.2.xip.io/rest/hello',
+       {'url': 'http://hello-helloworld-msa.rhek-cdk.10.3.2.2.xip.io/rest/hello',
         'id': 'hello-service'},
       ];
 
