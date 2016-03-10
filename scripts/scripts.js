@@ -23,8 +23,7 @@ function invoke_ajax(url, id){
             $('#' + id).text(data);
         },
         error: function(error) {
-            alert("An error has occured. Please check the console logs");
-            console.log("error getting value from service: " + error.status);
+             $('#' + id).text('Error getting value from service ' + url);
         }
     });
 }
@@ -41,12 +40,10 @@ function init(){
         'id': 'hello-service'},
       ];
 
+    var error;
     for (var x = 0; x < services.length; x++){
-        url = services[x].url;
-        id = services[x].id;
-        invoke_ajax(url, id);
+        invoke_ajax(services[x].url, services[x].id)
     }
-    
 };
 
 init();
