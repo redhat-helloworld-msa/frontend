@@ -36,7 +36,7 @@ function init(){
       'id': 'bonjour-service'},
       {'url': 'http://hola-docker-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
        'id': 'hola-docker-service'},
-       {'url': 'http://hello-helloworld-msa.rhek-cdk.10.3.2.2.xip.io/rest/hello',
+       {'url': 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hello',
         'id': 'hello-service'},
       ];
 
