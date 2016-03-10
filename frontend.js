@@ -19,14 +19,7 @@ var express = require('express');
 var app = express();
 
 
-app.use('/', express.static('.', {
-    'setHeaders': setHeaders
-}));
-
-// Set header to force download
-function setHeaders(res, path) {
-  res.setHeader('Access-Control-Allow-Origin', "*")
-}
+app.use('/', express.static('.'));
 
 var server = app.listen(8080,  '0.0.0.0', function(){
   var host = server.address().address

@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/redhat-helloworld-msa/frontend#readme",
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "express": "^4.13.4",
+    "jquery": "^2.2.1",
     "patternfly": "^3.2.0"
   }
 }
