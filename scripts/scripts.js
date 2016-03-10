@@ -23,7 +23,7 @@ function invoke_ajax(url, id){
             $('#' + id).text(data);
         },
         error: function(error) {
-            alert("error");
+            alert("An error has occured. Please check the console logs");
             console.log("error getting value from service: " + error.status);
         }
     });
@@ -35,6 +35,10 @@ function init(){
        'id': 'hola-service'},
       {'url': 'http://bonjour-helloworld-msa.cdk.10.3.2.2.xip.io/bonjour',
       'id': 'bonjour-service'},
+      {'url': 'http://hola-docker-helloworld-msa.cdk.10.3.2.2.xip.io/rest/hola',
+       'id': 'hola-docker-service'},
+       {'url': 'http://hello-helloworld-msa.cdk.10.3.2.2.xip.io/rest/hello',
+        'id': 'hello-service'},
       ];
 
     for (var x = 0; x < services.length; x++){
