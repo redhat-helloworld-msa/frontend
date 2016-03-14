@@ -17,74 +17,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MSA Frontend</title>
+<title>Microservices Frontend</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- PatternFly Styles -->
-    <!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
-    <link rel="stylesheet" href="node_modules/patternfly/dist/css/patternfly.min.css" />
-    <link rel="stylesheet" href="node_modules/patternfly/dist/css/patternfly-additions.min.css" />
+<!-- PatternFly Styles -->
+<!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
+<link rel="stylesheet" href="node_modules/patternfly/dist/css/patternfly.min.css" />
+<link rel="stylesheet" href="node_modules/patternfly/dist/css/patternfly-additions.min.css" />
 
-    <!-- jQuery -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- OAuth2 JS client -->
+<script src=""></script>
 
 
 </head>
 <body>
 
-<div class="container">
+	<!-- Black Header -->
+	<nav class="navbar navbar-default navbar-pf" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Red Hat - Hello world MSA (Micro Services Architecture) </a>
+		</div>
+		<!-- Nav tabs -->
+		<ul class="nav navbar-nav navbar-primary" id="mytabs">
+			<li role="presentation" class="active"><a href="#browser">Browser as a client</a></li>
+			<li role="presentation"><a href="#apigateway">API Gateway</a></li>
+			<li role="presentation"><a href="#servicechain">Service chaining</a></li>
+		</ul>
 
-    <nav class="navbar navbar-default navbar-pf" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                Red Hat Hello world MSA
-            </a>
-        </div>
-    </nav>
-    
-    <!-- Hello Service -->
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Hello Service</h3>
-        </div>
-        <div id="hello-service" class="panel-body">
-            Loading....
-        </div>
-    </div>
+	</nav>
 
-    <!-- Hola Service -->
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Hola Service</h3>
-        </div>
-        <div id="hola-service" class="panel-body">
-            Loading....
-        </div>
-        <div id="hola-docker-service" class="panel-body">
-            Loading....
-        </div>
-    </div>
-
-    <!-- Bonjour Service -->
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Bonjour Service</h3>
-        </div>
-        <div id="bonjour-service" class="panel-body">
-            Loading....
-        </div>
-    </div>
-
-    <!-- Page script -->
-    <script src="scripts/scripts.js"></script>
+	<div class="container-fluid">
 
 
-</div>
+		<!-- Tab panes -->
+		<div class="tab-content">
+
+			<!--  Tab Browser Client -->
+			<div role="tabpanel" class="tab-pane active" id="browser">
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a id="refresh-browser" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+					</div>
+					<h1>Using Browser as a Client</h1>
+				</div>
+
+				<div id="tab-browser-content" style="width: 50%; float: left;">
+					<!-- Hello Service -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Hello Service (JAX-RS / EAP)</h3>
+						</div>
+						<div id="hello-service" class="panel-body">Loading....</div>
+					</div>
+
+					<!-- Hola Service -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Hola Service (JAX-RS / WildFly Swarm)</h3>
+						</div>
+						<div id="hola-s2i-service" class="panel-body">Loading....</div>
+						<div id="hola-docker-service" class="panel-body">Loading....</div>
+					</div>
+
+					<!-- Bonjour Service -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Bonjour Service (NodeJS / Express)</h3>
+						</div>
+						<div id="bonjour-service" class="panel-body">Loading....</div>
+					</div>
+				</div>
+				<img src="images/browser-client.png" style="float: right; width: 50%; margin-top: 1em;" />
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="apigateway">
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+					</div>
+					<h1>Using an API Gateway</h1>
+				</div>
+				<div id="tab-apigateway-content" style="width: 50%; float: left;"></div>
+				<img src="images/api-gateway.png" style="float: right; width: 50%; margin-top: 1em;" />
+			</div>
+			<div role="tabpanel" class="tab-pane" id="servicechain">
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a href="#" onclick="location.reload();"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+					</div>
+					<h1>Using Service chaining</h1>
+				</div>
+				<div id="tab-servicechain-content" style="width: 50%; float: left;"></div>
+				<img src="images/service-chaining.png" style="float: right; width: 50%; margin-top: 1em;" />
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Page script -->
+	<script src="scripts/page.js"></script>
+	<!-- Browser-Client script -->
+	<script src="scripts/browser-client.js"></script>
+
+
 
 </body>
 </html>

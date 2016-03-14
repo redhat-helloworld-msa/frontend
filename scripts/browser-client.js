@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+
 function invoke_ajax(url, id){
     $.ajax({
         url: url,
@@ -28,10 +29,11 @@ function invoke_ajax(url, id){
     });
 }
 
-function init(){
+function browser_query(){
+    console.log('Init()');
     var services = [
       {'url': 'http://hola-s2i-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
-       'id': 'hola-service'},
+       'id': 'hola-s2i-service'},
       {'url': 'http://bonjour-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/bonjour',
       'id': 'bonjour-service'},
       {'url': 'http://hola-docker-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
@@ -46,7 +48,10 @@ function init(){
     }
 };
 
-init();
+
+$( document ).ready(function() {
+    browser_query();
+});
 
 
 
