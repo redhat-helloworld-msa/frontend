@@ -11,18 +11,26 @@
  * governing permissions and limitations under the License.
  */
 
-$('#mytabs a').click(function(e) {
-    e.preventDefault()
-    $(this).tab('show');
-})
+function chain_query() {
+        $.ajax({
+            url : 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hello-chaining',
+            cache : false,
+            success : function(data) {
+                $('#service-chain').empty();
+                result = JSON.parse(data);
+                var str = '<ul>';
+                for (var x = 0; x < result.length; x++) {
+                    str += '<li>' + (x + 1) + ' - ' + result[x] + '</li>';
+                }
+                str += '</ul>';
+                $('#service-chain').append(str);
+            },
+            error : function(error) {
+                $('#service-chain').append('Error invoking service chain');
+            }
+        });
+};
 
-$('#refresh-browser').click(function() {
-    browser_query();
-    return false;
-});
-
-$('#refresh-chain').click(function() {
-    $('#service-chain').text("Loading...");
+$(document).ready(function() {
     chain_query();
-    return false;
 });

@@ -48,8 +48,8 @@
 		<!-- Nav tabs -->
 		<ul class="nav navbar-nav navbar-primary" id="mytabs">
 			<li role="presentation" class="active"><a href="#browser">Browser as a client</a></li>
-			<li role="presentation"><a href="#apigateway">API Gateway</a></li>
 			<li role="presentation"><a href="#servicechain">Service chaining</a></li>
+			<li role="presentation"><a href="#apigateway">API Gateway</a></li>
 		</ul>
 
 	</nav>
@@ -83,8 +83,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Hola Service (JAX-RS / WildFly Swarm)</h3>
 						</div>
-						<div id="hola-s2i-service" class="panel-body">Loading....</div>
-						<div id="hola-docker-service" class="panel-body">Loading....</div>
+						<div id="hola-service" class="panel-body">Loading....</div>
 					</div>
 
 					<!-- Bonjour Service -->
@@ -94,8 +93,46 @@
 						</div>
 						<div id="bonjour-service" class="panel-body">Loading....</div>
 					</div>
+
+					<!-- Aloha Service -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Aloha Service (Vert.x)</h3>
+						</div>
+						<div id="aloha-service" class="panel-body">Loading....</div>
+					</div>
+
+					<!-- Olá Service -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Ola Service (Spring Boot)</h3>
+						</div>
+						<div id="ola-service" class="panel-body">Loading....</div>
+					</div>
+
 				</div>
 				<img src="images/browser-client.png" style="float: right; width: 50%; margin-top: 1em;" />
+			</div>
+
+
+			<div role="tabpanel" class="tab-pane" id="servicechain">
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a href="#" id="refresh-chain" ><span class="pficon pficon-refresh"></span>Refresh Results</a>
+					</div>
+					<h1>Using Service chaining</h1>
+				</div>
+				<div id="tab-servicechain-content" style="width: 50%; float: left;">
+					<!-- Service Chaining -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Service Chaining</h3>
+						</div>
+						<div id="service-chain" class="panel-body">Loading....</div>
+					</div>
+
+				</div>
+				<img src="images/service-chaining.png" style="float: right; width: 50%; margin-top: 1em;" />
 			</div>
 
 			<div role="tabpanel" class="tab-pane" id="apigateway">
@@ -108,16 +145,6 @@
 				<div id="tab-apigateway-content" style="width: 50%; float: left;"></div>
 				<img src="images/api-gateway.png" style="float: right; width: 50%; margin-top: 1em;" />
 			</div>
-			<div role="tabpanel" class="tab-pane" id="servicechain">
-				<div class="page-header page-header-bleed-right">
-					<div class="actions pull-right">
-						<a href="#" onclick="location.reload();"><span class="pficon pficon-refresh"></span>Refresh Results</a>
-					</div>
-					<h1>Using Service chaining</h1>
-				</div>
-				<div id="tab-servicechain-content" style="width: 50%; float: left;"></div>
-				<img src="images/service-chaining.png" style="float: right; width: 50%; margin-top: 1em;" />
-			</div>
 		</div>
 	</div>
 
@@ -127,6 +154,8 @@
 	<script src="scripts/page.js"></script>
 	<!-- Browser-Client script -->
 	<script src="scripts/browser-client.js"></script>
+	<!-- Chain Service script -->
+	<script src="scripts/service-chain.js"></script>
 
 
 
