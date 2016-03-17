@@ -10,6 +10,22 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+var services = [ {
+    'url' : 'http://hola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
+    'id' : 'hola-service'
+}, {
+    'url' : 'http://bonjour-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/bonjour',
+    'id' : 'bonjour-service'
+}, {
+    'url' : 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hello',
+    'id' : 'hello-service'
+}, {
+    'url' : 'http://aloha-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/aloha',
+    'id' : 'aloha-service'
+}, {
+    'url' : 'http://ola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/ola',
+    'id' : 'ola-service'
+}, ];
 
 function invoke_ajax(url, id) {
     $.ajax({
@@ -25,28 +41,11 @@ function invoke_ajax(url, id) {
 }
 
 function browser_query() {
-    var services = [
-            {
-                'url' : 'http://hola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hola',
-                'id' : 'hola-service'
-            },
-            {
-                'url' : 'http://bonjour-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/bonjour',
-                'id' : 'bonjour-service'
-            },
-            {
-                'url' : 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hello',
-                'id' : 'hello-service'
-            },
-            {
-                'url' : 'http://aloha-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/aloha',
-                'id' : 'aloha-service'
-            },
-            {
-                'url' : 'http://ola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/ola',
-                'id' : 'ola-service'
-            }, ];
-
+    //Clear all responses
+    for (var x = 0; x < services.length; x++) {
+        $('#' + services[x].id).text("Loading...");
+    }
+    //Make the invocation
     for (var x = 0; x < services.length; x++) {
         invoke_ajax(services[x].url, services[x].id)
     }
