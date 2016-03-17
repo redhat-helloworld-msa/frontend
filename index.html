@@ -69,60 +69,81 @@
 					<h1>Using Browser as a Client</h1>
 				</div>
 
-				<div id="tab-browser-content" style="width: 50%; float: left;">
-					<!-- Hello Service -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Hello Service (JAX-RS / EAP)</h3>
+				<div id="tab-browser-content" style="width: 45%; float: left;">
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Hello Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Hello Service</h3>
+									(JAX-RS / EAP)
+								</div>
+								<div id="hello-service" class="panel-body">Loading....</div>
+							</div>
 						</div>
-						<div id="hello-service" class="panel-body">Loading....</div>
+						<div class=" col-sm-6 ">
+
+							<!-- Hola Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Hola Service</h3>
+									(JAX-RS / WildFly Swarm)
+								</div>
+								<div id="hola-service" class="panel-body">Loading....</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Bonjour Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Bonjour Service</h3>
+									(NodeJS / Express)
+								</div>
+								<div id="bonjour-service" class="panel-body">Loading....</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 ">
+							<!-- Aloha Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Aloha Service</h3>
+									(Vert.x)
+								</div>
+								<div id="aloha-service" class="panel-body">Loading....</div>
+							</div>
+						</div>
 					</div>
 
-					<!-- Hola Service -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Hola Service (JAX-RS / WildFly Swarm)</h3>
+					<div class="row">
+						<div class="col-sm-6 ">
+							<div id="tab-browser-content">
+								<!-- Olá Service -->
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title">Olá Service</h3>
+										(Spring Boot)
+									</div>
+									<div id="ola-service" class="panel-body">Loading....</div>
+								</div>
+							</div>
 						</div>
-						<div id="hola-service" class="panel-body">Loading....</div>
 					</div>
-
-					<!-- Bonjour Service -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Bonjour Service (NodeJS / Express)</h3>
-						</div>
-						<div id="bonjour-service" class="panel-body">Loading....</div>
-					</div>
-
-					<!-- Aloha Service -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Aloha Service (Vert.x)</h3>
-						</div>
-						<div id="aloha-service" class="panel-body">Loading....</div>
-					</div>
-
-					<!-- Olá Service -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Ola Service (Spring Boot)</h3>
-						</div>
-						<div id="ola-service" class="panel-body">Loading....</div>
-					</div>
-
 				</div>
-				<img src="images/browser-client.png" style="float: right; width: 50%; margin-top: 1em;" />
+				<img src="images/browser-client.svg" style="float: right; width: 50%; margin-top: 1em;" />
 			</div>
 
 
 			<div role="tabpanel" class="tab-pane" id="servicechain">
 				<div class="page-header page-header-bleed-right">
 					<div class="actions pull-right">
-						<a href="#" id="refresh-chain" ><span class="pficon pficon-refresh"></span>Refresh Results</a>
+						<a href="#" id="refresh-chain"><span class="pficon pficon-refresh"></span>Refresh Results</a>
 					</div>
 					<h1>Using Service chaining</h1>
 				</div>
-				<div id="tab-servicechain-content" style="width: 50%; float: left;">
+				<div id="tab-servicechain-content" style="width: 40%; float: left;">
 					<!-- Service Chaining -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -132,7 +153,7 @@
 					</div>
 
 				</div>
-				<img src="images/service-chaining.png" style="float: right; width: 50%; margin-top: 1em;" />
+				<img src="images/service-chaining.svg" style="float: right; width: 40%; margin-top: 1em;" />
 			</div>
 
 			<div role="tabpanel" class="tab-pane" id="apigateway">
@@ -142,8 +163,8 @@
 					</div>
 					<h1>Using an API Gateway</h1>
 				</div>
-				<div id="tab-apigateway-content" style="width: 50%; float: left;"></div>
-				<img src="images/api-gateway.png" style="float: right; width: 50%; margin-top: 1em;" />
+				<div id="tab-apigateway-content" style="width: 40%; float: left;"></div>
+				<img src="images/api-gateway.svg" style="float: right; width: 50%; margin-top: 1em;" />
 			</div>
 		</div>
 	</div>
@@ -156,8 +177,5 @@
 	<script src="scripts/browser-client.js"></script>
 	<!-- Chain Service script -->
 	<script src="scripts/service-chain.js"></script>
-
-
-
 </body>
 </html>
