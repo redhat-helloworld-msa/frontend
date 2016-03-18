@@ -13,7 +13,7 @@
 
 function chain_query() {
         $.ajax({
-            url : 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/rest/hello-chaining',
+            url : 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/hello-chaining',
             cache : false,
             success : function(data) {
                 $('#service-chain').empty();
