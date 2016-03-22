@@ -135,7 +135,7 @@
 				<img src="images/browser-client.svg" style="float: right; width: 50%; margin-top: 1em;" />
 			</div>
 
-
+			<!--  Tab Service Chaining -->
 			<div role="tabpanel" class="tab-pane" id="servicechain">
 				<div class="page-header page-header-bleed-right">
 					<div class="actions pull-right">
@@ -151,19 +151,28 @@
 						</div>
 						<div id="service-chain" class="panel-body">Loading....</div>
 					</div>
-
 				</div>
 				<img src="images/service-chaining.svg" style="float: right; width: 40%; margin-top: 1em;" />
 			</div>
 
+			<!--  Tab API Gateway -->
 			<div role="tabpanel" class="tab-pane" id="apigateway">
 				<div class="page-header page-header-bleed-right">
 					<div class="actions pull-right">
-						<a href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+						<a href="#" id="refresh-apigateway"><span class="pficon pficon-refresh"></span>Refresh Results</a>
 					</div>
 					<h1>Using an API Gateway</h1>
 				</div>
-				<div id="tab-apigateway-content" style="width: 40%; float: left;"></div>
+				<div id="tab-apigateway-content" style="width: 40%; float: left;">
+					<!-- API Gateway -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">API Gateway</h3>
+						</div>
+						<div id="api-gateway" class="panel-body">Loading....</div>
+					</div>
+
+				</div>
 				<img src="images/api-gateway.svg" style="float: right; width: 50%; margin-top: 1em;" />
 			</div>
 		</div>
@@ -177,5 +186,7 @@
 	<script src="scripts/browser-client.js"></script>
 	<!-- Chain Service script -->
 	<script src="scripts/service-chain.js"></script>
+	<!-- API Gateway script -->
+	<script src="scripts/api-gateway.js"></script>
 </body>
 </html>

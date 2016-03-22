@@ -11,24 +11,26 @@
  * governing permissions and limitations under the License.
  */
 
-$('#mytabs a').click(function(e) {
-    e.preventDefault()
-    $(this).tab('show');
-})
+function api_gateway() {
+        $.ajax({
+            url : 'http://apigateway-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api',
+            cache : false,
+            success : function(data) {
+                $('#api-gateway').empty();
+                result = data;
+                var str = '<ul>';
+                for (var x = 0; x < result.length; x++) {
+                    str += '<li>' + result[x] + '</li>';
+                }
+                str += '</ul>';
+                $('#api-gateway').append(str);
+            },
+            error : function(error) {
+                $('#api-gateway').append('Error invoking service chain');
+            }
+        });
+};
 
-$('#refresh-browser').click(function() {
-    browser_query();
-    return false;
-});
-
-$('#refresh-chain').click(function() {
-    $('#service-chain').text("Loading...");
-    chain_query();
-    return false;
-});
-
-$('#refresh-apigateway').click(function() {
-    $('#api-gateway').text("Loading...");
+$(document).ready(function() {
     api_gateway();
-    return false;
 });
