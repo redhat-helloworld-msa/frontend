@@ -25,6 +25,9 @@ var services = [ {
 }, {
     'url' : 'http://ola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/ola',
     'id' : 'ola-service'
+}, {
+    'url' : 'http://namaste-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/namaste',
+    'id' : 'namaste-service'
 }, ];
 
 function invoke_ajax(url, id) {

@@ -17,7 +17,7 @@ function chain_query() {
             cache : false,
             success : function(data) {
                 $('#service-chain').empty();
-                result = JSON.parse(data);
+                result = data;
                 var str = '<ul>';
                 for (var x = 0; x < result.length; x++) {
                     str += '<li>' + (x + 1) + ' - ' + result[x] + '</li>';
