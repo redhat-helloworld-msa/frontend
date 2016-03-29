@@ -11,22 +11,22 @@
  * governing permissions and limitations under the License.
  */
 var services = [ {
-    'url' : 'http://hola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/hola',
+    'url' : 'http://hola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hola',
     'id' : 'hola-service'
 }, {
-    'url' : 'http://bonjour-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/bonjour',
+    'url' : 'http://bonjour-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/bonjour',
     'id' : 'bonjour-service'
 }, {
-    'url' : 'http://hello-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/hello',
+    'url' : 'http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello',
     'id' : 'hello-service'
 }, {
-    'url' : 'http://aloha-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/aloha',
+    'url' : 'http://aloha-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/aloha',
     'id' : 'aloha-service'
 }, {
-    'url' : 'http://ola-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/ola',
+    'url' : 'http://ola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/ola',
     'id' : 'ola-service'
 }, {
-    'url' : 'http://namaste-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api/namaste',
+    'url' : 'http://namaste-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/namaste',
     'id' : 'namaste-service'
 }, ];
 

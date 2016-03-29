@@ -13,7 +13,7 @@
 
 function api_gateway() {
         $.ajax({
-            url : 'http://apigateway-helloworld-msa.rhel-cdk.10.3.2.2.xip.io/api',
+            url : 'http://apigateway-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api',
             cache : false,
             success : function(data) {
                 $('#api-gateway').empty();
