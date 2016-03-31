@@ -11,5 +11,9 @@ Execute frontend
 
 3. Type this command to execute the application:
 
+		npm start
+
+4. Open the html page
+
         open index.html
 

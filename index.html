@@ -50,6 +50,7 @@
 			<li role="presentation" class="active"><a href="#browser">Browser as a client</a></li>
 			<li role="presentation"><a href="#apigateway">API Gateway</a></li>
 			<li role="presentation"><a href="#servicechain">Service chaining</a></li>
+			<li role="presentation"><a href="#hystrix">Hystrix Dashboard</a></li>
 		</ul>
 
 	</nav>
@@ -186,6 +187,12 @@
 					</div>
 				</div>
 				<img src="images/service-chaining.svg" style="float: right; width: 50%; margin-top: 1em;" />
+			</div>
+
+			<!--  Tab Hystrix Dashaboard -->
+			<div role="tabpanel" class="tab-pane active" id="hystrix">
+				<iframe style="border: 0; width: 100%; height: 100%; position: absolute" id="hystrix-dashboard-iframe"
+					src="http://hystrix-dashboard-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/monitor/monitor.html?stream=http%3A%2F%2Fturbine-server%2Fturbine.stream"> </iframe>
 			</div>
 
 		</div>
