@@ -26,7 +26,7 @@ function api_gateway() {
                 $('#api-gateway').append(str);
             },
             error : function(error) {
-                $('#api-gateway').append('Error invoking service chain');
+                $('#api-gateway').append('Error invoking api-gateway');
             }
         });
 };
