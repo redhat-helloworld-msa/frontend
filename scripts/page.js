@@ -20,6 +20,11 @@ $('#refresh-browser').click(function() {
     browser_query();
     return false;
 });
+$('#refresh-browser2').click(function() {
+    browser_query();
+    return false;
+});
+
 
 $('#refresh-chain').click(function() {
     $('#service-chain').text("Loading...");
@@ -27,8 +32,22 @@ $('#refresh-chain').click(function() {
     return false;
 });
 
+$('#refresh-chain2').click(function() {
+    $('#service-chain').text("Loading...");
+    chain_query();
+    return false;
+});
+
+
 $('#refresh-apigateway').click(function() {
     $('#api-gateway').text("Loading...");
     api_gateway();
     return false;
 });
+
+$('#refresh-apigateway2').click(function() {
+    $('#api-gateway').text("Loading...");
+    api_gateway();
+    return false;
+});
+
