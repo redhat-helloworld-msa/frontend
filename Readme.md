@@ -1,8 +1,11 @@
 # frontend
 HTML5 Frontend to access microservices
 
-Execute frontend
----------------
+The detailed instructions to run *Red Hat Helloworld MSA* demo, can be found at the following repository: <https://github.com/redhat-helloworld-msa/helloworld-msa>
+
+
+Execute frontend locally
+------------------------
 
 1. Open a command prompt and navigate to the root directory of this microservice.
 2. Type this command to install the dependencies
@@ -17,3 +20,4 @@ Execute frontend
 
         open index.html
 
+5. The application will be running at the following URL: <http://localhost:8080/>
