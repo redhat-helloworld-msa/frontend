@@ -13,7 +13,7 @@
 
 function chain_query() {
         $.ajax({
-            url : 'http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello-chaining',
+            url : 'http://' + env.HOSTIP + ':' + env.HELLO_PORT  + '/api/hello-chaining', 
             cache : false,
             success : function(data) {
                 $('#service-chain').empty();
@@ -32,5 +32,14 @@ function chain_query() {
 };
 
 $(document).ready(function() {
+ 
+   $.ajax({
+        url: document.URL + 'env',
+        success: function (result) {
+            env = result.env;
+        },
+        async: false
+    });
+
     chain_query();
 });
