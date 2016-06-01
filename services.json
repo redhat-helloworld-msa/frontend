@@ -1,0 +1,26 @@
+{
+  "hello-service": {
+    "url": "http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello"
+  },
+  "hello-chaining": {
+      "url": "http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello-chaining"
+    },
+  "hola-service": {
+    "url": "http://hola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hola"
+  },
+  "bonjour-service": {
+    "url": "http://bonjour-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/bonjour"
+  },
+  "aloha-service": {
+    "url": "http://aloha-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/aloha"
+  },
+  "ola-service": {
+    "url": "http://ola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/ola"
+  },
+  "namaste-service": {
+    "url": "http://namaste-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/namaste"
+  },
+  "api-gateway": {
+    "url": "http://api-gateway-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api"
+  }
+}

@@ -11,26 +11,35 @@
  * governing permissions and limitations under the License.
  */
 
+var hellourl = '';
+
 function chain_query() {
-        $.ajax({
-            url : 'http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello-chaining',
-            cache : false,
-            success : function(data) {
-                $('#service-chain').empty();
-                result = data;
-                var str = '<ul>';
-                for (var x = 0; x < result.length; x++) {
-                    str += '<li>' + (x + 1) + ' - ' + result[x] + '</li>';
-                }
-                str += '</ul>';
-                $('#service-chain').append(str);
-            },
-            error : function(error) {
-                $('#service-chain').append('Error invoking service chain');
+    console.log(hellourl);
+    $.ajax({
+        url : hellourl,
+        cache : false,
+        success : function(data) {
+            $('#service-chain').empty();
+            result = data;
+            var str = '<ul>';
+            for (var x = 0; x < result.length; x++) {
+                str += '<li>' + (x + 1) + ' - ' + result[x] + '</li>';
             }
-        });
+            str += '</ul>';
+            $('#service-chain').append(str);
+        },
+        error : function(error) {
+            $('#service-chain').append('Error invoking service chain');
+        }
+    });
 };
 
 $(document).ready(function() {
-    chain_query();
+    $.getJSON(document.URL + 'services.json').done(function(json) {
+        hellourl = apiurl = json['hello-chaining'].url;
+        chain_query();
+    }).fail(function(jqxhr, textStatus, error) {
+        var err = textStatus + ", " + error;
+        alert("Request Failed: " + err)
+    });
 });

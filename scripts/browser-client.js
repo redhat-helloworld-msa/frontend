@@ -10,25 +10,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-var services = [ {
-    'url' : 'http://hola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hola',
-    'id' : 'hola-service'
-}, {
-    'url' : 'http://bonjour-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/bonjour',
-    'id' : 'bonjour-service'
-}, {
-    'url' : 'http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello',
-    'id' : 'hello-service'
-}, {
-    'url' : 'http://aloha-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/aloha',
-    'id' : 'aloha-service'
-}, {
-    'url' : 'http://ola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/ola',
-    'id' : 'ola-service'
-}, {
-    'url' : 'http://namaste-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/namaste',
-    'id' : 'namaste-service'
-}, ];
+var services = {};
 
 function invoke_ajax(url, id) {
     $.ajax({
@@ -45,15 +27,21 @@ function invoke_ajax(url, id) {
 
 function browser_query() {
     //Clear all responses
-    for (var x = 0; x < services.length; x++) {
-        $('#' + services[x].id).text("Loading...");
+    for (service in services) {
+        $('#' + service).text("Loading...");
     }
     //Make the invocation
-    for (var x = 0; x < services.length; x++) {
-        invoke_ajax(services[x].url, services[x].id)
+    for (service in services) {
+        invoke_ajax(services[service].url, service)
     }
 };
 
 $(document).ready(function() {
-    browser_query();
+    $.getJSON(document.URL + 'services.json').done(function(json) {
+        services = json;
+        browser_query();
+    }).fail(function(jqxhr, textStatus, error) {
+        var err = textStatus + ", " + error;
+        alert("Request Failed: " + err)
+    });
 });

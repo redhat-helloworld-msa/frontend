@@ -10,27 +10,35 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+var apiurl = '';
 
 function api_gateway() {
-        $.ajax({
-            url : 'http://api-gateway-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api',
-            cache : false,
-            success : function(data) {
-                $('#api-gateway').empty();
-                result = data;
-                var str = '<ul>';
-                for (var x = 0; x < result.length; x++) {
-                    str += '<li>' + result[x] + '</li>';
-                }
-                str += '</ul>';
-                $('#api-gateway').append(str);
-            },
-            error : function(error) {
-                $('#api-gateway').append('Error invoking api-gateway');
+    $.ajax({
+        url : apiurl,
+        cache : false,
+        success : function(data) {
+            $('#api-gateway').empty();
+            result = data;
+            var str = '<ul>';
+            for (var x = 0; x < result.length; x++) {
+                str += '<li>' + result[x] + '</li>';
             }
-        });
+            str += '</ul>';
+            $('#api-gateway').append(str);
+        },
+        error : function(error) {
+            $('#api-gateway').append('Error invoking api-gateway');
+        }
+    });
 };
 
 $(document).ready(function() {
-    api_gateway();
+    $.getJSON(document.URL + 'services.json').done(function(json) {
+        apiurl = json['api-gateway'].url;
+        api_gateway();
+    }).fail(function(jqxhr, textStatus, error) {
+        var err = textStatus + ", " + error;
+        alert("Request Failed: " + err)
+    });
+
 });
