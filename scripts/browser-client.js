@@ -10,25 +10,35 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
+var env = {};
+
 var services = [ {
-    'url' : 'http://hola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hola',
-    'id' : 'hola-service'
+    'url' : '/api/hola',
+    'id' : 'hola-service',
+    'port': 'HOLA_PORT'
 }, {
-    'url' : 'http://bonjour-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/bonjour',
-    'id' : 'bonjour-service'
+    'url' : '/api/bonjour',
+    'id' : 'bonjour-service',
+    'port': 'BONJOUR_PORT'
 }, {
-    'url' : 'http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello',
-    'id' : 'hello-service'
+    'url' : '/api/hello',
+    'id' : 'hello-service',
+    'port': 'HELLO_PORT'
 }, {
-    'url' : 'http://aloha-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/aloha',
-    'id' : 'aloha-service'
+    'url' : '/api/aloha',
+    'id' : 'aloha-service',
+    'port': 'ALOHA_PORT'
 }, {
-    'url' : 'http://ola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/ola',
-    'id' : 'ola-service'
+    'url' : '/api/ola',
+    'id' : 'ola-service',
+    'port': 'OLA_PORT'
 }, {
-    'url' : 'http://namaste-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/namaste',
-    'id' : 'namaste-service'
+    'url' : '/api/namaste',
+    'id' : 'namaste-service',
+    'port': 'NAMASTE_PORT'
 }, ];
+
 
 function invoke_ajax(url, id) {
     $.ajax({
@@ -50,10 +60,19 @@ function browser_query() {
     }
     //Make the invocation
     for (var x = 0; x < services.length; x++) {
-        invoke_ajax(services[x].url, services[x].id)
-    }
+				invoke_ajax('http://' + env["HOSTIP"] + ':' + env[services[x].port] + services[x].url, services[x].id)
+}
 };
 
 $(document).ready(function() {
+    $.ajax({
+        url: document.URL + 'env',
+        success: function (result) {
+            env = result.env;
+        },
+        async: false
+    });
+
+
     browser_query();
 });

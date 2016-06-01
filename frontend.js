@@ -21,6 +21,11 @@ var app = express();
 
 app.use('/', express.static('.'));
 
+app.get('/env', function (req, res) {
+  res.json({ env: process.env });
+});
+
+
 var server = app.listen(8080,  '0.0.0.0', function(){
   var host = server.address().address
   var port = server.address().port

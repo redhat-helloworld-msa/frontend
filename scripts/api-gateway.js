@@ -13,7 +13,7 @@
 
 function api_gateway() {
         $.ajax({
-            url : 'http://api-gateway-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api',
+            url : 'http://' + env.HOSTIP + ':' + env.API_GATEWAY_PORT  + '/api',
             cache : false,
             success : function(data) {
                 $('#api-gateway').empty();
@@ -32,5 +32,15 @@ function api_gateway() {
 };
 
 $(document).ready(function() {
+
+    $.ajax({
+        url: document.URL + 'env',
+        success: function (result) {
+            env = result.env;
+        },
+        async: false
+    });
+
     api_gateway();
+
 });
