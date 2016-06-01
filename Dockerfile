@@ -1,4 +1,4 @@
-FROM openshift3/nodejs-010-rhel7
+FROM registry.access.redhat.com/openshift3/nodejs-010-rhel7
 
 ADD . /opt/app-root/src/
 
