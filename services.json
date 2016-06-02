@@ -1,26 +1,26 @@
 {
   "hello-service": {
-    "url": "http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello"
+    "url": "HELLOURL"
   },
   "hello-chaining": {
-      "url": "http://hello-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hello-chaining"
-    },
+      "url": "HELLOCHAINURL"
+  },
   "hola-service": {
-    "url": "http://hola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/hola"
+    "url": "HOLAURL"
   },
   "bonjour-service": {
-    "url": "http://bonjour-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/bonjour"
+    "url": "BONJOURURL"
   },
   "aloha-service": {
-    "url": "http://aloha-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/aloha"
+    "url": "ALOHAURL"
   },
   "ola-service": {
-    "url": "http://ola-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/ola"
+    "url": "OLAURL"
   },
   "namaste-service": {
-    "url": "http://namaste-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api/namaste"
+    "url": "NAMASTEURL"
   },
   "api-gateway": {
-    "url": "http://api-gateway-helloworld-msa.rhel-cdk.10.1.2.2.xip.io/api"
+    "url": "APIGATEWAYURL"
   }
 }
