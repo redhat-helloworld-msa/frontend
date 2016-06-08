@@ -70,17 +70,6 @@
 				<div id="tab-browser-content" style="width: 45%; float: left;">
 					<div class="row">
 						<div class="col-sm-6 ">
-							<!-- Hello Service -->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">Hello Service</h3>
-									(JAX-RS / EAP)
-								</div>
-								<div id="hello-service" class="panel-body">Loading....</div>
-							</div>
-						</div>
-						<div class=" col-sm-6 ">
-
 							<!-- Hola Service -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
@@ -88,6 +77,17 @@
 									(JAX-RS / WildFly Swarm)
 								</div>
 								<div id="hola-service" class="panel-body">Loading....</div>
+							</div>
+
+						</div>
+						<div class=" col-sm-6 ">
+							<!-- Olá Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Olá Service</h3>
+									(Spring Boot)
+								</div>
+								<div id="ola-service" class="panel-body">Loading....</div>
 							</div>
 						</div>
 					</div>
@@ -113,40 +113,11 @@
 								<div id="aloha-service" class="panel-body">Loading....</div>
 							</div>
 						</div>
+						<a id="refresh-browser2" href="#"><span class="pficon"></span>Refresh Results</a>
 					</div>
 
-					<div class="row">
-						<div class="col-sm-6 ">
-							<div id="tab-browser-content">
-								<!-- Namaste Service -->
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h3 class="panel-title">Namaste Service</h3>
-										(Dropwizard)
-									</div>
-									<div id="namaste-service" class="panel-body">Loading....</div>
-								</div>
-                                <a id="refresh-browser2" href="#"><span class="pficon"></span>Refresh Results</a>
-							</div>
-						</div>
-						<div class="col-sm-6 ">
-							<div id="tab-browser-content">
-								<!-- Olá Service -->
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h3 class="panel-title">Olá Service</h3>
-										(Spring Boot)
-									</div>
-									<div id="ola-service" class="panel-body">Loading....</div>                                    
-								</div>
-						
-                        	</div>
-						
-                        </div>
-                        
-					</div>
 				</div>
-				<img src="images/browser-client.svg" style="float: right; width: 50%; margin-top: 1em;" />
+				<img src="images/browser-client.svg" style="float: right; width: 50%; height: 30em;" />
 			</div>
 
 			<!--  Tab API Gateway -->
@@ -164,11 +135,11 @@
 							<h3 class="panel-title">API Gateway</h3>
 						</div>
 						<div id="api-gateway" class="panel-body">Loading....</div>
-                        
+
 					</div>
-                    <a href="#" id="refresh-apigateway2"><span class="pficon"></span>Refresh Results</a>
+					<a href="#" id="refresh-apigateway2"><span class="pficon"></span>Refresh Results</a>
 				</div>
-				<img src="images/api-gateway.svg" style="float: right; width: 50%; margin-top: 1em;" />
+				<img src="images/api-gateway.svg" style="float: right; width: 50%; height: 25em" />
 			</div>
 
 			<!--  Tab Service Chaining -->
@@ -187,21 +158,22 @@
 						</div>
 						<div id="service-chain" class="panel-body">Loading....</div>
 					</div>
-                    <a href="#" id="refresh-chain2"><span class="pficon"></span>Refresh Results</a>
+					<a href="#" id="refresh-chain2"><span class="pficon"></span>Refresh Results</a>
 				</div>
-				<img src="images/service-chaining.svg" style="float: right; width: 50%; margin-top: 1em;" />
+				<img src="images/service-chaining.svg" style="float: right; width: 50%; height: 25em" />
 			</div>
 
 			<!--  Tab Hystrix Dashaboard -->
 			<div role="tabpanel" class="tab-pane active" id="hystrix">
-				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;" id="hystrix-dashboard-iframe"
+				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;"
+					id="hystrix-dashboard-iframe"
 					src="HYSTRIXDASHBOARDURL/monitor/monitor.html?stream=http%3A%2F%2Fturbine-server%2Fturbine.stream"> </iframe>
 			</div>
 
 			<!--  Tab Hystrix Dashaboard -->
 			<div role="tabpanel" class="tab-pane active" id="zipkin">
-				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;" id="zipkin-dashboard-iframe"
-					src="ZIPKINQUERYURL"> </iframe>
+				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;"
+					id="zipkin-dashboard-iframe" src="ZIPKINQUERYURL"> </iframe>
 			</div>
 		</div>
 	</div>

@@ -1,9 +1,6 @@
 {
-  "hello-service": {
-    "url": "HELLOURL"
-  },
-  "hello-chaining": {
-      "url": "HELLOCHAINURL"
+  "ola-chaining": {
+      "url": "OLACHAINURL"
   },
   "hola-service": {
     "url": "HOLAURL"
@@ -16,9 +13,6 @@
   },
   "ola-service": {
     "url": "OLAURL"
-  },
-  "namaste-service": {
-    "url": "NAMASTEURL"
   },
   "api-gateway": {
     "url": "APIGATEWAYURL"

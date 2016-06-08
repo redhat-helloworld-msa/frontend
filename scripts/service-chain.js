@@ -36,7 +36,7 @@ function chain_query() {
 
 $(document).ready(function() {
     $.getJSON(document.URL + 'services.json').done(function(json) {
-        hellourl = apiurl = json['hello-chaining'].url;
+        hellourl = apiurl = json['ola-chaining'].url;
         chain_query();
     }).fail(function(jqxhr, textStatus, error) {
         var err = textStatus + ", " + error;
