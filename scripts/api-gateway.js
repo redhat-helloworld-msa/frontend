@@ -16,6 +16,9 @@ function api_gateway() {
     $.ajax({
         url : apiurl,
         cache : false,
+        xhrFields : {
+            withCredentials : true
+        },
         success : function(data) {
             $('#api-gateway').empty();
             result = data;
