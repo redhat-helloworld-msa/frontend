@@ -11,10 +11,7 @@
  * governing permissions and limitations under the License.
  */
 
-var hellourl = '';
-
 function chain_query() {
-    console.log(hellourl);
     $.ajax({
         url : hellourl,
         cache : false,

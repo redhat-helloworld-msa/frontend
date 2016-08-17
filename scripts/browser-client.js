@@ -16,12 +16,14 @@ function invoke_ajax(url, id) {
     $.ajax({
         url : url,
         cache : false,
-        timeout: 1000,
+        timeout: 5000,
         success : function(data) {
             $('#' + id).text(data);
         },
         error : function(error) {
             $('#' + id).text(id + ' (fallback)');
+            console.log('Error accessing ' + url + 
+                    ' - Cause: ' + error.statusText);
         }
     });
 }
