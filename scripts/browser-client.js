@@ -40,7 +40,7 @@ function browser_query() {
 };
 
 $(document).ready(function() {
-    $.getJSON(document.URL + 'services.json').done(function(json) {
+    $.getJSON('services.json').done(function(json) {
         services = json;
         browser_query();
     }).fail(function(jqxhr, textStatus, error) {

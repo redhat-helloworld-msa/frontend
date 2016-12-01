@@ -32,7 +32,7 @@ function chain_query() {
 };
 
 $(document).ready(function() {
-    $.getJSON(document.URL + 'services.json').done(function(json) {
+    $.getJSON('services.json').done(function(json) {
         hellourl = apiurl = json['ola-chaining'].url;
         chain_query();
     }).fail(function(jqxhr, textStatus, error) {

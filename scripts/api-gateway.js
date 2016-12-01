@@ -36,7 +36,7 @@ function api_gateway() {
 };
 
 $(document).ready(function() {
-    $.getJSON(document.URL + 'services.json').done(function(json) {
+    $.getJSON('services.json').done(function(json) {
         apiurl = json['api-gateway'].url;
         api_gateway();
     }).fail(function(jqxhr, textStatus, error) {

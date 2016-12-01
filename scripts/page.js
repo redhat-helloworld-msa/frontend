@@ -14,17 +14,30 @@
 $('#mytabs a').click(function(e) {
     e.preventDefault()
     $(this).tab('show');
-})
+});
 
 $('#refresh-browser').click(function() {
     browser_query();
     return false;
 });
+
 $('#refresh-browser2').click(function() {
     browser_query();
     return false;
 });
 
+$('#refresh-sso').click(function() {
+    sso_query();
+    return false;
+});
+$('#refresh-sso2').click(function() {
+    sso_query();
+    return false;
+});
+$('#sso-login').click(function() {
+    keycloak.login();
+    return false;
+});
 
 $('#refresh-chain').click(function() {
     $('#service-chain').text("Loading...");
@@ -50,4 +63,3 @@ $('#refresh-apigateway2').click(function() {
     api_gateway();
     return false;
 });
-

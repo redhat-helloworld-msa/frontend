@@ -1,0 +1,7 @@
+{
+  "realm": "helloworld-msa",
+  "auth-server-url": "{{{ keycloak_server }}}",
+  "ssl-required": "none",
+  "resource": "frontend",
+  "public-client": true
+}

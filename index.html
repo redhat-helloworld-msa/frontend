@@ -33,6 +33,9 @@
 <!-- Bootstrap JS -->
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
+<!-- Keycloak JS -->
+<script src="node_modules/keycloak-js/dist/keycloak.js"></script>
+
 </head>
 <body>
 
@@ -43,11 +46,18 @@
 		</div>
 		<!-- Nav tabs -->
 		<ul class="nav navbar-nav navbar-primary" id="mytabs">
-			<li role="presentation" class="active"><a href="#browser">Browser as a client</a></li>
+			{{#sso}}
+				<li role="presentation" class="active"><a href="#sso">SSO</a></li>
+			{{/sso}}
+			<li role="presentation"><a href="#browser">Browser as a client</a></li>
 			<li role="presentation"><a href="#apigateway">API Gateway</a></li>
 			<li role="presentation"><a href="#servicechain">Service chaining</a></li>
-			<li role="presentation"><a href="#hystrix">Hystrix Dashboard</a></li>
-			<li role="presentation"><a href="#zipkin">Zipkin Dashboard</a></li>
+			{{#hystrix}}
+				<li role="presentation"><a href="#hystrix">Hystrix Dashboard</a></li>
+			{{/hystrix}}
+			{{#zipkin}}
+				<li role="presentation"><a href="#zipkin">Zipkin Dashboard</a></li>
+			{{/zipkin}}
 		</ul>
 
 	</nav>
@@ -58,8 +68,77 @@
 		<!-- Tab panes -->
 		<div class="tab-content">
 
+			<!--  Tab SSO Dashaboard -->
+			{{#sso}}
+			<div role="tabpanel" class="tab-pane active" id="sso">
+
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a id="refresh-sso" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+						|
+						<a id="show-login-link" style="display: none; cursor: pointer;" ref="#" onclick="keycloak.login()"><span class="pficon pficon-user"></span>Login</a>
+						<a id="show-logout-link" style="display: none; cursor: pointer;" href="#" onclick="keycloak.logout()"><span class="pficon pficon-import"></span>Logout</a>
+						|
+						<span id="login-status"></span>
+					</div>
+					<h1>Using SSO Client</h1>
+				</div>
+
+				<div id="tab-sso-content" style="width: 45%; float: left;">
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Hola Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Hola Secured</h3>
+									(JAX-RS / WildFly Swarm)
+								</div>
+								<div id="hola-service-secured" class="panel-body">Unauthorized</div>
+							</div>
+
+						</div>
+						<div class=" col-sm-6 ">
+							<!-- Olá Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Olá Secured</h3>
+									(Spring Boot)
+								</div>
+								<div id="ola-service-secured" class="panel-body">Unauthorized</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Bonjour Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Bonjour Secured</h3>
+									(NodeJS / Express)
+								</div>
+								<div id="bonjour-service-secured" class="panel-body">Unauthorized</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 ">
+							<!-- Aloha Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Aloha Secured</h3>
+									(Vert.x)
+								</div>
+								<div id="aloha-service-secured" class="panel-body">Unauthorized</div>
+							</div>
+						</div>
+					</div>
+					<a id="refresh-sso2" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+				</div>
+				<img src="images/sso.svg" style="float: right; width: 50%; height: 30em;" />
+			</div>
+			{{/sso}}
+			
 			<!--  Tab Browser Client -->
-			<div role="tabpanel" class="tab-pane active" id="browser">
+			<div role="tabpanel" class="tab-pane" id="browser">
 				<div class="page-header page-header-bleed-right">
 					<div class="actions pull-right">
 						<a id="refresh-browser" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
@@ -113,9 +192,8 @@
 								<div id="aloha-service" class="panel-body">Loading....</div>
 							</div>
 						</div>
-						<a id="refresh-browser2" href="#"><span class="pficon"></span>Refresh Results</a>
 					</div>
-
+					<a id="refresh-browser2" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
 				</div>
 				<img src="images/browser-client.svg" style="float: right; width: 50%; height: 30em;" />
 			</div>
@@ -137,7 +215,7 @@
 						<div id="api-gateway" class="panel-body">Loading....</div>
 
 					</div>
-					<a href="#" id="refresh-apigateway2"><span class="pficon"></span>Refresh Results</a>
+					<a href="#" id="refresh-apigateway2"><span class="pficon pficon-refresh"></span>Refresh Results</a>
 				</div>
 				<img src="images/api-gateway.svg" style="float: right; width: 50%; height: 25em" />
 			</div>
@@ -164,17 +242,23 @@
 			</div>
 
 			<!--  Tab Hystrix Dashaboard -->
+			{{#hystrix}}
 			<div role="tabpanel" class="tab-pane active" id="hystrix">
 				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;"
 					id="hystrix-dashboard-iframe"
 					src="HYSTRIXDASHBOARDURL/monitor/monitor.html?stream=http%3A%2F%2Fturbine-server%2Fturbine.stream"> </iframe>
 			</div>
+			{{/hystrix}}
 
-			<!--  Tab Hystrix Dashaboard -->
+
+			<!--  Tab Zipkin Dashaboard -->
+			{{#zipkin}}
 			<div role="tabpanel" class="tab-pane active" id="zipkin">
 				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;"
 					id="zipkin-dashboard-iframe" src="ZIPKINQUERYURL"> </iframe>
 			</div>
+			{{/zipkin}}
+
 		</div>
 	</div>
 
@@ -188,5 +272,7 @@
 	<script src="scripts/service-chain.js"></script>
 	<!-- API Gateway script -->
 	<script src="scripts/api-gateway.js"></script>
+	<!-- SSO script -->
+	<script src="scripts/sso.js"></script>
 </body>
 </html>

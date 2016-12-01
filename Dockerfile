@@ -12,6 +12,11 @@ EXPOSE 8080
 ENV OS_SUBDOMAIN='rhel-cdk.10.1.2.2.xip.io' \
     OS_PROJECT='helloworld-msa'
 
+# These variables can be used to enable/disable SSO/HYSTRIX/ZIPKIN dashboards
+ENV ENABLE_HYSTRIX false
+ENV ENABLE_ZIPKIN false
+ENV ENABLE_SSO false
+
 # The CMD. We do the following here:
 #  - Process the env vars. All of them can be overriden at run time
 #    so we need to run them through some logic on container bringup.

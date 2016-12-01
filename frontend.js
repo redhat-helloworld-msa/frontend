@@ -4,7 +4,7 @@
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -15,15 +15,44 @@
  * limitations under the License.
  */
 
-var express = require('express');
-var app = express();
+var express = require('express')
+var mustacheExpress = require('mustache-express')
+var app = express()
 
+// Register '.html' extension with The Mustache Express
+app.engine('html', mustacheExpress())
+app.engine('json', mustacheExpress())
 
-app.use('/', express.static('.'));
+app.set('view engine', 'mustache')
+app.set('views', __dirname)
 
-var server = app.listen(8080,  '0.0.0.0', function(){
+// Return a custom index.html file
+var customIndex = function (req, res) {
+  var view = {
+    hystrix: process.env.ENABLE_HYSTRIX ? JSON.parse(process.env.ENABLE_HYSTRIX): null,
+    zipkin: process.env.ENABLE_ZIPKIN ? JSON.parse(process.env.ENABLE_ZIPKIN) : null,
+    sso: process.env.ENABLE_SSO ? JSON.parse(process.env.ENABLE_SSO) : null
+  }
+  res.render('index.html', view)
+}
+
+app.get('/', customIndex)
+app.get('/index.html', customIndex)
+
+// Return a custom keycloak.json file
+app.get('/keycloak.json', function (req, res) {
+  var view = {
+    keycloak_server: process.env.KEYCLOAK_AUTH_SERVER_URL
+  }
+  res.render('keycloak.json', view)
+})
+
+// Serve all static files
+app.use('/', express.static('.'))
+
+var server = app.listen(8080, '0.0.0.0', function () {
   var host = server.address().address
   var port = server.address().port
 
-  console.log("Frontend service running at http://%s:%s", host, port)
-});
+  console.log('Frontend service running at http://%s:%s', host, port)
+})

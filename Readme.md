@@ -14,7 +14,7 @@ Execute frontend locally
 
 3. Type this command to execute the application:
 
-		npm start
+	ENABLE_ZIPKIN=true ENABLE_HYSTRIX=true ENABLE_SSO=true npm start
 
 4. Open the html page
 
