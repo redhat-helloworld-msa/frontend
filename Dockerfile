@@ -1,6 +1,4 @@
-FROM registry.access.redhat.com/openshift3/nodejs-010-rhel7
-
-ADD . /opt/app-root/src/
+FROM ryanj/centos7-nodejs:6.4.0
 
 EXPOSE 8080
 
