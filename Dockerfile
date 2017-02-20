@@ -1,9 +1,9 @@
-FROM ryanj/centos7-nodejs:6.4.0
+FROM bucharestgold/centos7-nodejs:6.9.5
 
 EXPOSE 8080
 
 # Variables that define default values for the OpenShift Project
-# and the Openshift dynamic subdomain that is being used. These 
+# and the Openshift dynamic subdomain that is being used. These
 # values are used to build up the service URLs that are used for
 # the services at runtime. These can also be overridden by injecting
 # environment variables into the container at runtime.
