@@ -34,7 +34,7 @@ CMD OLACHAINURL=${OLACHAINURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola
         OLAURL=${OLAURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola"}              \
         APIGATEWAYURL=${APIGATEWAYURL:-"http://api-gateway-${OS_PROJECT}.${OS_SUBDOMAIN}/api/gateway"}   \
         HYSTRIXDASHBOARDURL=${HYSTRIXDASHBOARDURL:-"http://hystrix-dashboard-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
-        ZIPKINQUERYURL=${ZIPKINQUERYURL:-"http://zipkin-query-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
+        ZIPKINQUERYURL=${ZIPKINQUERYURL:-"http://zipkin-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
     && sed -i services.json \
         -e 's|OLACHAINURL|'"$OLACHAINURL"'|' \
         -e 's|HOLAURL|'"$HOLAURL"'|' \
