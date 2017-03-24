@@ -1,4 +1,4 @@
-FROM bucharestgold/centos7-nodejs:6.9.5
+FROM bucharestgold/centos7-nodejs:7.7.4
 
 EXPOSE 8080
 
@@ -14,12 +14,6 @@ ENV OS_SUBDOMAIN='rhel-cdk.10.1.2.2.xip.io' \
 ENV ENABLE_HYSTRIX false
 ENV ENABLE_ZIPKIN false
 ENV ENABLE_SSO false
-
-#Fix permission to allow sed to run
-USER root
-RUN chmod g+w /opt/app-root/src
-USER default
-
 
 # The CMD. We do the following here:
 #  - Process the env vars. All of them can be overriden at run time
