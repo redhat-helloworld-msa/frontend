@@ -15,6 +15,12 @@ ENV ENABLE_HYSTRIX false
 ENV ENABLE_ZIPKIN false
 ENV ENABLE_SSO false
 
+#Fix permission to allow sed to run
+USER root
+RUN chmod g+w /opt/app-root/src
+USER default
+
+
 # The CMD. We do the following here:
 #  - Process the env vars. All of them can be overriden at run time
 #    so we need to run them through some logic on container bringup.
@@ -29,14 +35,14 @@ CMD OLACHAINURL=${OLACHAINURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola
         APIGATEWAYURL=${APIGATEWAYURL:-"http://api-gateway-${OS_PROJECT}.${OS_SUBDOMAIN}/api/gateway"}   \
         HYSTRIXDASHBOARDURL=${HYSTRIXDASHBOARDURL:-"http://hystrix-dashboard-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
         ZIPKINQUERYURL=${ZIPKINQUERYURL:-"http://zipkin-query-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
-    && sed -i.orig services.json \
+    && sed -i services.json \
         -e 's|OLACHAINURL|'"$OLACHAINURL"'|' \
         -e 's|HOLAURL|'"$HOLAURL"'|' \
         -e 's|BONJOURURL|'"$BONJOURURL"'|' \
         -e 's|ALOHAURL|'"$ALOHAURL"'|' \
         -e 's|OLAURL|'"$OLAURL"'|' \
         -e 's|APIGATEWAYURL|'"$APIGATEWAYURL"'|' \
-    && sed -i.orig index.html \
+    && sed -i index.html \
         -e 's|HYSTRIXDASHBOARDURL|'"$HYSTRIXDASHBOARDURL"'|' \
         -e 's|ZIPKINQUERYURL|'"$ZIPKINQUERYURL"'|' \
     && /bin/bash -c 'npm start'
