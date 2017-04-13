@@ -30,7 +30,8 @@ app.set('views', __dirname)
 var customIndex = function (req, res) {
   var view = {
     hystrix: process.env.ENABLE_HYSTRIX ? JSON.parse(process.env.ENABLE_HYSTRIX): null,
-    zipkin: process.env.ENABLE_ZIPKIN ? JSON.parse(process.env.ENABLE_ZIPKIN) : null,
+    zipkin: process.env.TRACING_SYSTEM ? process.env.TRACING_SYSTEM === 'zipkin' : null,
+    jaeger: process.env.TRACING_SYSTEM ? process.env.TRACING_SYSTEM === 'jaeger' : null,
     sso: process.env.ENABLE_SSO ? JSON.parse(process.env.ENABLE_SSO) : null
   }
   res.render('index.html', view)
