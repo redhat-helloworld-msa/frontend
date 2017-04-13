@@ -58,6 +58,9 @@
 			{{#zipkin}}
 				<li role="presentation"><a href="#zipkin">Zipkin Dashboard</a></li>
 			{{/zipkin}}
+			{{#jaeger}}
+			<li role="presentation"><a href="#jaeger">Jaeger Dashboard</a></li>
+			{{/jaeger}}
 		</ul>
 
 	</nav>
@@ -259,6 +262,13 @@
 			</div>
 			{{/zipkin}}
 
+			<!--  Tab Jaeger Dashaboard -->
+			{{#jaeger}}
+			<div role="tabpanel" class="tab-pane" id="jaeger">
+				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;"
+						id="zipkin-dashboard-iframe" src="JAEGERQUERYURL"> </iframe>
+			</div>
+			{{/jaeger}}
 		</div>
 	</div>
 

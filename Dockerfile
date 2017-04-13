@@ -12,7 +12,7 @@ ENV OS_SUBDOMAIN='rhel-cdk.10.1.2.2.xip.io' \
 
 # These variables can be used to enable/disable SSO/HYSTRIX/ZIPKIN dashboards
 ENV ENABLE_HYSTRIX false
-ENV ENABLE_ZIPKIN false
+ENV TRACING_SYSTEM none
 ENV ENABLE_SSO false
 
 # The CMD. We do the following here:
@@ -29,6 +29,7 @@ CMD OLACHAINURL=${OLACHAINURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola
         APIGATEWAYURL=${APIGATEWAYURL:-"http://api-gateway-${OS_PROJECT}.${OS_SUBDOMAIN}/api/gateway"}   \
         HYSTRIXDASHBOARDURL=${HYSTRIXDASHBOARDURL:-"http://hystrix-dashboard-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
         ZIPKINQUERYURL=${ZIPKINQUERYURL:-"http://zipkin-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
+        JAEGERQUERYURL=${JAEGERQUERYURL:-"http://jaeger-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
     && sed -i services.json \
         -e 's|OLACHAINURL|'"$OLACHAINURL"'|' \
         -e 's|HOLAURL|'"$HOLAURL"'|' \
@@ -39,4 +40,5 @@ CMD OLACHAINURL=${OLACHAINURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola
     && sed -i index.html \
         -e 's|HYSTRIXDASHBOARDURL|'"$HYSTRIXDASHBOARDURL"'|' \
         -e 's|ZIPKINQUERYURL|'"$ZIPKINQUERYURL"'|' \
+        -e 's|JAEGERQUERYURL|'"$JAEGERQUERYURL"'|' \
     && /bin/bash -c 'npm start'
