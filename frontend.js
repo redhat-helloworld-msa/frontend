@@ -30,7 +30,7 @@ app.set('views', __dirname)
 var customIndex = function (req, res) {
   var view = {
     hystrix: process.env.ENABLE_HYSTRIX ? JSON.parse(process.env.ENABLE_HYSTRIX): null,
-    jaeger: process.env.JAEGER_SERVER_URL ? true : false,
+    jaeger: process.env.JAEGER_SERVER_HOSTNAME ? true : false,
     sso: process.env.ENABLE_SSO ? JSON.parse(process.env.ENABLE_SSO) : null
   }
   res.render('index.html', view)
