@@ -26,6 +26,7 @@ CMD OLACHAINURL=${OLACHAINURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola
         ALOHAURL=${ALOHAURL:-"http://aloha-${OS_PROJECT}.${OS_SUBDOMAIN}/api/aloha"}        \
         OLAURL=${OLAURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola"}              \
         APIGATEWAYURL=${APIGATEWAYURL:-"http://api-gateway-${OS_PROJECT}.${OS_SUBDOMAIN}/api/gateway"}   \
+        TURBINESERVERURL=${TURBINESERVERURL:-"http://turbine-server-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
         HYSTRIXDASHBOARDURL=${HYSTRIXDASHBOARDURL:-"http://hystrix-dashboard-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
         JAEGERQUERYURL=${JAEGERQUERYURL:-"http://jaeger-${OS_PROJECT}.${OS_SUBDOMAIN}"} \
     && sed -i services.json \
@@ -36,6 +37,7 @@ CMD OLACHAINURL=${OLACHAINURL:-"http://ola-${OS_PROJECT}.${OS_SUBDOMAIN}/api/ola
         -e 's|OLAURL|'"$OLAURL"'|' \
         -e 's|APIGATEWAYURL|'"$APIGATEWAYURL"'|' \
     && sed -i index.html \
+        -e 's|TURBINESERVERURL|'"$TURBINESERVERURL"'|' \
         -e 's|HYSTRIXDASHBOARDURL|'"$HYSTRIXDASHBOARDURL"'|' \
         -e 's|JAEGERQUERYURL|'"$JAEGERQUERYURL"'|' \
     && /bin/bash -c 'npm start'
