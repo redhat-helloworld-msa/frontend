@@ -136,7 +136,7 @@
 				<img src="images/sso.svg" style="float: right; width: 50%; height: 30em;" />
 			</div>
 			{{/sso}}
-			
+
 			<!--  Tab Browser Client -->
 			<div role="tabpanel" class="tab-pane" id="browser">
 				<div class="page-header page-header-bleed-right">
@@ -252,10 +252,10 @@
 
 			<!--  Tab Jaeger Dashaboard -->
 			{{#jaeger}}
-			<div role="tabpanel" class="tab-pane" id="jaeger">
-				<iframe style="padding-top: 5vh; border: 0; width: 100%; height: 80vh; position: inherit;"
-						id="jaeger-dashboard-iframe" src="JAEGERQUERYURL"> </iframe>
-			</div>
+			<div role="tabpanel" class="tab-pane" id="jaeger" style="text-align: center; padding-top: 20px; font-size: x-large;">
+				<!-- It needs to be opened in another window because it doesn't fit inside an iFrame -->
+        		<a href="JAEGERQUERYURL" target="_blank">Open Jaeger Dashboard in another tab/window</a>
+        	</div>
 			{{/jaeger}}
 		</div>
 	</div>
