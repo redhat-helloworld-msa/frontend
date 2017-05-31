@@ -1,4 +1,4 @@
-FROM bucharestgold/centos7-nodejs:7.7.4
+FROM bucharestgold/centos7-nodejs:latest
 
 EXPOSE 8080
 
