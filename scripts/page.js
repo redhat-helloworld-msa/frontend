@@ -26,14 +26,25 @@ $('#refresh-browser2').click(function() {
     return false;
 });
 
+$('#refresh-apimanagement').click(function() {
+    managed_query();
+    return false;
+});
+$('#refresh-apimanagement2').click(function() {
+    managed_query();
+    return false;
+});
+
 $('#refresh-sso').click(function() {
     sso_query();
     return false;
 });
+
 $('#refresh-sso2').click(function() {
     sso_query();
     return false;
 });
+
 $('#sso-login').click(function() {
     keycloak.login();
     return false;

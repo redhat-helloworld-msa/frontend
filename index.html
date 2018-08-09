@@ -50,7 +50,10 @@
 				<li role="presentation" class="active"><a href="#sso">SSO</a></li>
 			{{/sso}}
 			<li role="presentation"><a href="#browser">Browser as a client</a></li>
-			<li role="presentation"><a href="#apigateway">API Gateway</a></li>
+			{{#threescale}}
+				<li role="presentation"><a href="#apimanagement">API Management</a></li>
+			{{/threescale}}
+			<li role="presentation"><a href="#apigateway">API Gateway Pattern</a></li>
 			<li role="presentation"><a href="#servicechain">Service chaining</a></li>
 			{{#hystrix}}
 				<li role="presentation"><a href="#hystrix">Hystrix Dashboard</a></li>
@@ -198,6 +201,75 @@
 				<img src="images/browser-client.svg" style="float: right; width: 50%; height: 30em;" />
 			</div>
 
+			<!--  Tab API Management -->
+			{{#threescale}}
+			<div role="tabpanel" class="tab-pane" id="apimanagement">
+
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a id="refresh-apimanagement" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+						|
+						<a id="show-login-link-apimanagement" style="display: none; cursor: pointer;" ref="#" onclick="keycloak.login()"><span class="pficon pficon-user"></span>Login</a>
+						<a id="show-logout-link-apimanagement" style="display: none; cursor: pointer;" href="#" onclick="keycloak.logout()"><span class="pficon pficon-import"></span>Logout</a>
+						|
+						<span id="login-status-apimanagement"></span>
+					</div>
+					<h1>Using Managed APIs</h1>
+				</div>
+
+				<div id="tab-apimanagement-content" style="width: 45%; float: left;">
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Hola Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Hola Managed</h3>
+									(JAX-RS / WildFly Swarm)
+								</div>
+								<div id="hola-service-managed" class="panel-body">Unauthorized</div>
+							</div>
+
+						</div>
+						<div class=" col-sm-6 ">
+							<!-- Olá Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Olá Managed</h3>
+									(Spring Boot)
+								</div>
+								<div id="ola-service-managed" class="panel-body">Unauthorized</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Bonjour Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Bonjour Managed</h3>
+									(NodeJS / Express)
+								</div>
+								<div id="bonjour-service-managed" class="panel-body">Unauthorized</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 ">
+							<!-- Aloha Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Aloha Managed</h3>
+									(Vert.x)
+								</div>
+								<div id="aloha-service-managed" class="panel-body">Unauthorized</div>
+							</div>
+						</div>
+					</div>
+					<a id="refresh-apimanagement2" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+				</div>
+				<img src="images/sso.svg" style="float: right; width: 50%; height: 30em;" />
+			</div>
+			{{/threescale}}
+
 			<!--  Tab API Gateway -->
 			<div role="tabpanel" class="tab-pane" id="apigateway">
 				<div class="page-header page-header-bleed-right">
@@ -266,11 +338,15 @@
 	<script src="scripts/page.js"></script>
 	<!-- Browser-Client script -->
 	<script src="scripts/browser-client.js"></script>
+	<!-- API Management script -->
+	<script src="scripts/api-management.js"></script>
 	<!-- Chain Service script -->
 	<script src="scripts/service-chain.js"></script>
-	<!-- API Gateway script -->
-	<script src="scripts/api-gateway.js"></script>
 	<!-- SSO script -->
 	<script src="scripts/sso.js"></script>
+	<!-- SSO Secured script -->
+	<script src="scripts/secured.js"></script>
+	<!-- API Gateway script -->
+	<script src="scripts/api-gateway.js"></script>
 </body>
 </html>
