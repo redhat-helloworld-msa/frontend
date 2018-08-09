@@ -10,18 +10,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-var services = {};
 var keycloak = Keycloak();
 
 keycloak.init().success(function(authenticated) {
     console.log('Init Success (' + (authenticated ? 'Authenticated' : 'Not Authenticated') + ')');
-    $('#login-status').text(keycloak.authenticated ? 'Authenticated as [' + keycloak.idTokenParsed.name +']' : 'Not Authenticated');
+    $('#login-status, #login-status-apimanagement').text(keycloak.authenticated ? 'Authenticated as [' + keycloak.idTokenParsed.name +']' : 'Not Authenticated');
     if (authenticated){
-        $('#show-logout-link').show();
+        $('#show-logout-link, #show-logout-link-apimanagement').show();
     }else{
-        $('#show-login-link').show();
+        $('#show-login-link, #show-login-link-apimanagement').show();
     }
-    sso_query();
 }).error(function() {
     alert('Keycloak initialization error');
 });
@@ -46,29 +44,3 @@ function invoke_secured_ajax(url, id) {
 
     req.send();
 }
-
-function load_data(){
-    //Clear all responses
-    for (service in services) {
-        if (service.endsWith('-service')){
-            $('#' + service + '-secured').text("Loading...");
-        }
-    }
-    //Make the invocation
-    for (service in services) {
-        if (service.endsWith('-service')){
-            invoke_secured_ajax(services[service].url + '-secured', service + '-secured');
-        }
-    }
-}
-
-function sso_query() {
-    keycloak.updateToken(30).success(function() {
-        load_data();
-    }).error(function() {
-        // Load the data anyway to show the error
-        load_data();
-        console.log('Failed to refresh token');
-    });
-};
-
