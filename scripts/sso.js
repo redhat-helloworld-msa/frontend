@@ -35,9 +35,13 @@ function invoke_secured_ajax(url, id) {
             if (req.status == 200) {
                 $('#' + id).text(req.responseText);
             } else {
-                $('#' + id).text('Unauthorized');
-                console.log('Error accessing ' + url + 
-                    ' - Cause: ' + req.statusText);
+                if (req.status == 429) {
+                    $('#' + id).text(req.statusText);
+                } else {
+                    $('#' + id).text('Unauthorized');
+                    console.log('Error accessing ' + url + 
+                        ' - Cause: ' + req.statusText);
+                }
             }
         }
     };
