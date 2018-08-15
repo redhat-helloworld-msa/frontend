@@ -49,10 +49,10 @@
 			{{#sso}}
 				<li role="presentation" class="active"><a href="#sso">SSO</a></li>
 			{{/sso}}
-			<li role="presentation"><a href="#browser">Browser as a client</a></li>
 			{{#threescale}}
 				<li role="presentation"><a href="#apimanagement">API Management</a></li>
 			{{/threescale}}
+			<li role="presentation"><a href="#browser">Browser as a client</a></li>
 			<li role="presentation"><a href="#apigateway">API Gateway Pattern</a></li>
 			<li role="presentation"><a href="#servicechain">Service chaining</a></li>
 			{{#hystrix}}
@@ -140,67 +140,6 @@
 			</div>
 			{{/sso}}
 
-			<!--  Tab Browser Client -->
-			<div role="tabpanel" class="tab-pane" id="browser">
-				<div class="page-header page-header-bleed-right">
-					<div class="actions pull-right">
-						<a id="refresh-browser" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
-					</div>
-					<h1>Using Browser as a Client</h1>
-				</div>
-
-				<div id="tab-browser-content" style="width: 45%; float: left;">
-					<div class="row">
-						<div class="col-sm-6 ">
-							<!-- Hola Service -->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">Hola Service</h3>
-									(JAX-RS / WildFly Swarm)
-								</div>
-								<div id="hola-service" class="panel-body">Loading....</div>
-							</div>
-
-						</div>
-						<div class=" col-sm-6 ">
-							<!-- Olá Service -->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">Olá Service</h3>
-									(Spring Boot)
-								</div>
-								<div id="ola-service" class="panel-body">Loading....</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6 ">
-							<!-- Bonjour Service -->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">Bonjour Service</h3>
-									(NodeJS / Express)
-								</div>
-								<div id="bonjour-service" class="panel-body">Loading....</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 ">
-							<!-- Aloha Service -->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">Aloha Service</h3>
-									(Vert.x)
-								</div>
-								<div id="aloha-service" class="panel-body">Loading....</div>
-							</div>
-						</div>
-					</div>
-					<a id="refresh-browser2" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
-				</div>
-				<img src="images/browser-client.svg" style="float: right; width: 50%; height: 30em;" />
-			</div>
-
 			<!--  Tab API Management -->
 			{{#threescale}}
 			<div role="tabpanel" class="tab-pane" id="apimanagement">
@@ -269,6 +208,67 @@
 				<img src="images/api-management.svg" style="float: right; width: 50%; height: 30em;" />
 			</div>
 			{{/threescale}}
+
+			<!--  Tab Browser Client -->
+			<div role="tabpanel" class="tab-pane" id="browser">
+				<div class="page-header page-header-bleed-right">
+					<div class="actions pull-right">
+						<a id="refresh-browser" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+					</div>
+					<h1>Using Browser as a Client</h1>
+				</div>
+
+				<div id="tab-browser-content" style="width: 45%; float: left;">
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Hola Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Hola Service</h3>
+									(JAX-RS / WildFly Swarm)
+								</div>
+								<div id="hola-service" class="panel-body">Loading....</div>
+							</div>
+
+						</div>
+						<div class=" col-sm-6 ">
+							<!-- Olá Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Olá Service</h3>
+									(Spring Boot)
+								</div>
+								<div id="ola-service" class="panel-body">Loading....</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 ">
+							<!-- Bonjour Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Bonjour Service</h3>
+									(NodeJS / Express)
+								</div>
+								<div id="bonjour-service" class="panel-body">Loading....</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 ">
+							<!-- Aloha Service -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Aloha Service</h3>
+									(Vert.x)
+								</div>
+								<div id="aloha-service" class="panel-body">Loading....</div>
+							</div>
+						</div>
+					</div>
+					<a id="refresh-browser2" href="#"><span class="pficon pficon-refresh"></span>Refresh Results</a>
+				</div>
+				<img src="images/browser-client.svg" style="float: right; width: 50%; height: 30em;" />
+			</div>
 
 			<!--  Tab API Gateway -->
 			<div role="tabpanel" class="tab-pane" id="apigateway">
