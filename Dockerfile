@@ -4,10 +4,8 @@ WORKDIR /opt/app-root/src
 
 EXPOSE 8080
 
-COPY package.json /opt/app-root/src
 COPY . /opt/app-root/src
 
-RUN npm -s install
 
 # Variables that define default values for the OpenShift Project
 # and the Openshift dynamic subdomain that is being used. These
